@@ -6,7 +6,7 @@ import MenuIcon from '../../assets/sprites/nav_menu.svg';
 import searchIcon from '../../assets/sprites/search.svg';
 import tgIcon from '../../assets/sprites/tg_icon.svg';
 import ytIcon from '../../assets/sprites/yt_icon.svg';
-import { Container } from '../../components/Container';
+import { Container } from '../../components/Container/Container';
 
 import s from './Navbar.module.scss';
 

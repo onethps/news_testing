@@ -1,11 +1,11 @@
 import { ReactElement } from 'react';
 
 import Marquee from 'react-fast-marquee';
+import { GiTank } from 'react-icons/gi';
 
-import { Container } from '../../components/Container';
+import { Container } from '../../components/Container/Container';
 
 import s from './StatsLine.module.scss';
-import { GiTank } from 'react-icons/gi';
 
 const mockStats = [
   {

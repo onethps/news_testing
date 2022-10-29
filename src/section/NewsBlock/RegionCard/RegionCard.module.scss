@@ -1,0 +1,26 @@
+.root {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+
+  .item {
+    border-bottom: 1px solid #ebebeb;
+    padding: 24px 0;
+    .date {
+      color: #f3560c;
+    }
+
+    .newsBox {
+      margin-top: 12px;
+      & span {
+        color: #707070;
+        display: inline;
+      }
+
+      & p {
+        margin-left: 10px;
+        display: inline;
+      }
+    }
+  }
+}

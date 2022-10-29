@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 
 import { Hero } from './section/Hero/Hero';
 import { Navbar } from './section/Navbar/Navbar';
+import { NewsBlock } from './section/NewsBlock/NewsBlock';
 import { StatsLine } from './section/StatsLine/StatsLine';
 
 const App = (): ReactElement => {
@@ -10,6 +11,7 @@ const App = (): ReactElement => {
       <Navbar />
       <StatsLine />
       <Hero />
+      <NewsBlock />
     </div>
   );
 };

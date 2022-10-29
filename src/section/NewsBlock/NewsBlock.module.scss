@@ -1,0 +1,52 @@
+.root {
+  display: grid;
+  grid-template:
+    'side main '
+    'side reg ';
+
+  margin-top: 80px;
+}
+
+.side {
+  display: grid;
+  grid-area: side;
+}
+
+.regions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.categoryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & h1 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.categoryTitle {
+  margin-bottom: 32px;
+  font-size: 32px;
+}
+
+.categorySubTitle {
+  color: #ff7534;
+  size: 14px;
+}
+
+.mainBox {
+  margin: 0 32px;
+}
+
+.main {
+  display: grid;
+  grid-area: main;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 56px;
+}
