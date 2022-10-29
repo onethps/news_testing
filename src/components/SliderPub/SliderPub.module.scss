@@ -1,0 +1,30 @@
+.root {
+  background-color: rgba(255, 255, 255, 0.32);
+  opacity: 0.8;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 12px;
+  align-items: center;
+  max-width: 304px;
+  color: white;
+
+  & img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+
+  & p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-height: 1.2; /* fallback */
+    max-height: calc(3 * 1.2);
+    overflow: hidden;
+  }
+}
+
+.active {
+  opacity: 1;
+}

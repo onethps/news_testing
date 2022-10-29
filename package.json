@@ -12,15 +12,23 @@
     "@types/react-dom": "^18.0.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.3.5",
+    "react-icons": "^4.6.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.55.0",
+    "scss": "^0.2.4",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "generate:svg": "svg-sprite -s --symbol-dest ./public/ --symbol-sprite sprite.svg app/assets/sprites/*.svg",
+    "generate:svg:props": "ts-node --require tsconfig-paths/register ./scripts/generate-sprite-props.ts",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
@@ -48,10 +56,13 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.30.6",
-    "@typescript-eslint/parser": "^5.30.6",
+    "@types/react-native-vector-icons": "^6.4.12",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
     "eslint": "^8.19.0",
-    "eslint-plugin-react": "^7.30.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.0"
   }
 }
