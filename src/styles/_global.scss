@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -6,4 +8,48 @@
 
 body {
   background-color: #f1f1f1;
+  font-family: TTSevers_Normal;
+  font-weight: bolder;
+}
+
+@font-face {
+  font-family: 'TTSevers_Normal';
+  src: url('../fonts/TTSevers-Regular.woff') format('woff');
+  font-weight: normal;
+  font-size: normal;
+}
+
+@font-face {
+  font-family: 'TTSevers_Bold';
+  src: url('../fonts/TTSevers-Bold.woff') format('woff');
+  font-weight: bolder;
+  font-size: bolder;
+}
+
+@font-face {
+  font-family: 'TTSevers_ExtraBold';
+  src: url('../fonts/TTSevers-ExtraBold.woff') format('woff');
+  font-weight: bold;
+  font-size: bold;
+}
+
+@font-face {
+  font-family: 'TTSevers_Light';
+  src: url('../fonts/TTSevers-Light.woff') format('woff');
+  font-weight: lighter;
+  font-size: lighter;
+}
+
+@font-face {
+  font-family: 'TTSevers_Medium';
+  src: url('../fonts/TTSevers-Medium.woff') format('woff');
+  font-weight: medium;
+  font-size: medium;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'TTSevers_Medium';
 }
