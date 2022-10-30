@@ -1,0 +1,57 @@
+@import '../../../styles//media';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c {
+  display: flex;
+  gap: 24px;
+}
+
+.item {
+  padding: 24px 0;
+  min-width: 304px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+
+  @include media(tablet) {
+    border-bottom: 1px solid black;
+  }
+
+  .headerCard {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    & img {
+      width: 64px;
+      height: 84px;
+    }
+
+    .author {
+      & h4 {
+        font-size: 16px;
+      }
+    }
+  }
+
+  & p {
+    padding: 16px 0;
+    font-family: 'TTSevers_Medium';
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  & span {
+    color: #707070;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

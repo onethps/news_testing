@@ -1,0 +1,73 @@
+@import '../../styles//media';
+
+.root {
+  background: #121b30;
+  padding: 10px 0;
+  margin-top: 32px;
+  min-width: 375px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    margin-top: 56px;
+    padding: 0 24px;
+  }
+
+  .textColor {
+    color: white;
+  }
+  .dateColor {
+    color: white;
+    opacity: 0.7;
+  }
+
+  .subButton {
+    display: flex;
+    gap: 16px;
+    color: white;
+    align-items: center;
+
+    & svg {
+      font-size: 32px;
+    }
+  }
+
+  .content {
+    display: grid;
+    padding: 20px 0;
+    padding-bottom: 112px;
+    grid-template-areas:
+      'side'
+      'main';
+    gap: 32px;
+
+    @include media(tablet) {
+      grid-template-areas:
+        'side main'
+        'side main';
+    }
+
+    .side {
+      grid-area: side;
+      grid-template-columns: 1fr;
+      align-self: center;
+      margin-right: 32px;
+      padding: 0 24px;
+    }
+
+    .main {
+      display: grid;
+      grid-area: main;
+
+      grid-template-columns: 1fr;
+      padding: 0 24px;
+      gap: 32px;
+
+      @include media(tablet) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}

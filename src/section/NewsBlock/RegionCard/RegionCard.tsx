@@ -1,58 +1,21 @@
-import { ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
+
+import { FeedItem } from '../../../components/FeedItem/FeedItem';
+import { RegionType } from '../../../components/FeedItem/mockRegions';
 
 import s from './RegionCard.module.scss';
 
-const mockCards = [
-  {
-    id: 1,
-    time: '14:59',
-    text: '"Відбудова України — завдання усього світу": промова Зеленського на конференції в Лугано',
-    date: '05 Серпня',
-  },
-  {
-    id: 2,
-    time: '14:59',
-    text: '"Відбудова України — завдання усього світу": промова Зеленського на конференції в Лугано',
-    date: '05 Серпня',
-  },
-  {
-    id: 3,
-    time: '14:59',
-    text: '"Відбудова України — завдання усього світу": промова Зеленського на конференції в Лугано',
-    date: '',
-  },
-  {
-    id: 4,
-    time: '14:59',
-    text: '"Відбудова України — завдання усього світу": промова Зеленського на конференції в Лугано',
-    date: '',
-  },
-  {
-    id: 5,
-    time: '14:59',
-    text: '"Відбудова України — завдання усього світу": промова Зеленського на конференції в Лугано',
-    date: '',
-  },
-  {
-    id: 6,
-    time: '14:59',
-    text: '"Відбудова України — завдання усього світу": промова Зеленського на конференції в Лугано',
-    date: '05 Серпня',
-  },
-];
+type Props = {
+  region: string;
+  news: RegionType[];
+};
 
-export const RegionCard = (): ReactElement => {
+export const RegionCard: FC<Props> = ({ region, news }): ReactElement => {
   return (
     <div className={s.root}>
-      <h1>Київ</h1>
-      {mockCards.map(el => (
-        <div key={el.id} className={s.item}>
-          {el.date ? <span className={s.date}>{el.date}</span> : null}
-          <div className={s.newsBox}>
-            <span className={s.timeNews}>{el.time}</span>
-            <p>{el.text}</p>
-          </div>
-        </div>
+      <h1>{region}</h1>
+      {news.map(({ id, date, time, text }) => (
+        <FeedItem key={id} date={date} time={time} text={text} label="" />
       ))}
     </div>
   );

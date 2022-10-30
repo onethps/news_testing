@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import Marquee from 'react-fast-marquee';
 import { GiTank } from 'react-icons/gi';
 
-import { Container } from '../../components/Container/Container';
+import { Container } from '../Container/Container';
 
 import s from './StatsLine.module.scss';
 

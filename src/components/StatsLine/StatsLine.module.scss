@@ -1,12 +1,18 @@
+@import '../../styles//media';
+
 .root {
   background: #121b30;
-  padding: 10px;
+  padding: 9.5px;
+  font-size: 12px;
+  @include media(small-tablet) {
+    padding: 10px;
+  }
 }
 
 .statsName {
   color: white;
   display: block;
-  min-width: 150px;
+  min-width: 100px;
 }
 
 .block {

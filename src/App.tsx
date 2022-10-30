@@ -1,20 +1,22 @@
 import { ReactElement } from 'react';
 
+import { Navbar } from './components/Navbar/Navbar';
+import { StatsLine } from './components/StatsLine/StatsLine';
+import { ColumsBlock } from './section/ColumsBlock/ColumsBlock';
 import { Hero } from './section/Hero/Hero';
-import { Navbar } from './section/Navbar/Navbar';
 import { NewsBlock } from './section/NewsBlock/NewsBlock';
-import { StatsLine } from './section/StatsLine/StatsLine';
-import { Video } from './section/Video/Video';
+import { Video } from './section/VideoBlock/Video';
 
 const App = (): ReactElement => {
   return (
-    <div>
+    <>
       <Navbar />
       <StatsLine />
       <Hero />
       <NewsBlock />
       <Video />
-    </div>
+      <ColumsBlock />
+    </>
   );
 };
 

@@ -1,0 +1,10 @@
+.root {
+  background-color: white;
+  max-width: 304px;
+  // padding: 16px;
+  border-radius: 20px;
+
+  & h2 {
+    font-family: 'TTSevers_Normal';
+  }
+}

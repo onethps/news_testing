@@ -1,11 +1,12 @@
 import { ReactElement } from 'react';
 
 import { SlArrowRightCircle } from 'react-icons/sl';
-import { Card } from '../../components/Card/Card';
 
+import { Card } from '../../components/Card/Card';
 import { Container } from '../../components/Container/Container';
 
 import s from './Video.module.scss';
+import { useMedia } from 'react-use';
 
 const mockCards = [
   {
@@ -35,6 +36,8 @@ const mockCards = [
 ];
 
 export const Video = (): ReactElement => {
+  const isTablet = useMedia('(min-width: 620px)', false);
+
   return (
     <section className={s.root}>
       <Container>
@@ -48,6 +51,9 @@ export const Video = (): ReactElement => {
         <div className={s.content}>
           <div className={s.side}>
             <Card
+              colorText={s.textColor}
+              colorDate={s.dateColor}
+              large={isTablet && mockCards[0].id === 1}
               key={mockCards[0].id}
               image={mockCards[0].image}
               date={mockCards[0].date}
@@ -56,7 +62,14 @@ export const Video = (): ReactElement => {
           </div>
           <div className={s.main}>
             {mockCards.map(el => (
-              <Card key={el.id} image={el.image} date={el.date} text={el.text} />
+              <Card
+                colorText={s.textColor}
+                colorDate={s.dateColor}
+                key={el.id}
+                image={el.image}
+                date={el.date}
+                text={el.text}
+              />
             ))}
           </div>
         </div>

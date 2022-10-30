@@ -6,10 +6,21 @@
   padding: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: #f1f1f1;
   font-family: TTSevers_Normal;
   font-weight: bolder;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+  width: 100%;
+  padding-bottom: 56px;
 }
 
 @font-face {
@@ -44,12 +55,18 @@ body {
   font-family: 'TTSevers_Medium';
   src: url('../fonts/TTSevers-Medium.woff') format('woff');
   font-weight: medium;
-  font-size: medium;
+  font-size: 24px;
 }
 
 h1,
-h2,
 h3,
 h4 {
+  font-family: 'TTSevers_Medium';
+  font-size: 32px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 24px;
   font-family: 'TTSevers_Medium';
 }

@@ -1,0 +1,129 @@
+@import '../../styles//media';
+
+.topNav {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  @include media(small-tablet) {
+    padding: 24px 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .leftSide {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    .menuButton {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      background-color: #f7f7f7;
+      padding: 8px 12px;
+    }
+  }
+
+  .list {
+    display: none;
+    @include media(small-tablet) {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
+  }
+}
+
+.rightSide {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+
+  .mobileRightSide {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .search {
+    @include media(small-tablet) {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      gap: 14px;
+      background-color: #e8e8e8;
+      border-radius: 68px;
+      max-height: 37px;
+    }
+    & img {
+      width: 24px;
+      height: 24px;
+    }
+
+    & input {
+      background: none;
+      border: none;
+      min-width: 200px;
+
+      &::placeholder {
+        color: #b0b0b0;
+      }
+    }
+  }
+
+  .border {
+    width: 24px;
+    height: 24px;
+    border-left: 1px solid black;
+  }
+}
+
+.bottomNav {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+  overflow: scroll;
+  @include hideScroll;
+
+  .list {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+
+    & li:first-child {
+      color: #ff7534;
+      font-weight: 600;
+    }
+  }
+
+  @include media(small-tablet) {
+    align-items: center;
+    padding-top: 12px;
+    padding-bottom: 16px;
+  }
+
+  .live {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+      bottom: 3px;
+      width: 6px;
+      height: 6px;
+      border-radius: 100%;
+      border: 3px solid rgba(224, 70, 70, 0.9);
+      background-color: #e04646;
+    }
+  }
+}

@@ -1,4 +1,9 @@
+@import '../../styles//media';
+
 .root {
-  width: 1312px;
-  margin: 0 auto;
+  width: 100%;
+  @include media(small-tablet) {
+    width: 1312px;
+    margin: 0 auto;
+  }
 }

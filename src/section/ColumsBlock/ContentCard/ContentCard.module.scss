@@ -1,0 +1,59 @@
+@import '../../../styles//media';
+
+.root {
+  border-radius: 12px;
+  background-color: white;
+  margin-top: 24px;
+
+  .main {
+    grid-area: main;
+
+    padding: 24px 32px;
+
+    .content {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: 'sidebar';
+
+      @include media(tablet) {
+        gap: 32px;
+        grid-template:
+          'mainCard  sidebar'
+          'second  sidebar';
+      }
+
+      .mainCard {
+        display: none;
+
+        @include media(tablet) {
+          display: grid;
+          grid-area: mainCard;
+        }
+      }
+
+      .second {
+        display: none;
+
+        @include media(tablet) {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-area: second;
+          gap: 32px;
+        }
+      }
+
+      .sidebar {
+        display: grid;
+        grid-area: sidebar;
+      }
+    }
+
+    .headerCard {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+}
