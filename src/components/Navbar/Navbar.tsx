@@ -3,7 +3,9 @@ import { ReactElement } from 'react';
 import { useMedia } from 'react-use';
 
 import fbIcon from '../../assets/sprites/fb_icon.svg';
+import fireIcon from '../../assets/sprites/fire.svg';
 import instIcon from '../../assets/sprites/inst_icon.svg';
+import searchMobileIcon from '../../assets/sprites/mobile/search.svg';
 import MenuIcon from '../../assets/sprites/nav_menu.svg';
 import searchIcon from '../../assets/sprites/search.svg';
 import tgIcon from '../../assets/sprites/tg_icon.svg';
@@ -13,7 +15,7 @@ import { Container } from '../Container/Container';
 import s from './Navbar.module.scss';
 
 export const Navbar = (): ReactElement => {
-  const isMobileWith = useMedia('(min-width: 620px)', false);
+  const isMobileWith = useMedia('(min-width: 376px)', false);
 
   return (
     <Container>
@@ -34,7 +36,7 @@ export const Navbar = (): ReactElement => {
 
         {/* rightmenu */}
         <div className={s.rightSide}>
-          <div className={s.righhtMobile}>
+          <div className={s.rightMobile}>
             {isMobileWith ? (
               <div className={s.search}>
                 <img alt="a" src={searchIcon} />
@@ -42,7 +44,7 @@ export const Navbar = (): ReactElement => {
               </div>
             ) : (
               <div className={s.mobileRightSide}>
-                <img alt="a" src={searchIcon} />
+                <img alt="a" src={searchMobileIcon} />
                 <select>
                   <option>UA</option>
                   <option>RU</option>
@@ -76,7 +78,10 @@ export const Navbar = (): ReactElement => {
 
       <div className={s.bottomNav}>
         <ul className={s.list}>
-          <li>ВІЙНА</li>
+          <li>
+            <img src={fireIcon} alt="fire_icon" />
+            <span>ВІЙНА</span>
+          </li>
           <li>НОВИНИ</li>
           <li>ПОЛІТИКА</li>
           <li>ЕКОНОМІКА</li>

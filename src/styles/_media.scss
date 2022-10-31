@@ -1,5 +1,5 @@
 $breakpoints: (
-  'mobile': 320px,
+  'mobile': 376px,
   'small-tablet': 600px,
   'tablet': 768px,
   'laptop': 992px,
@@ -29,4 +29,13 @@ $breakpoints: (
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+@mixin maxTextLines($maxLines, $lineHeight) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $maxLines; /* number of lines to show */
+  line-height: $lineHeight; /* fallback */
+  max-height: calc($maxLines * $lineHeight);
+  overflow: hidden;
 }

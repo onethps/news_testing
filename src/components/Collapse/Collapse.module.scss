@@ -1,0 +1,33 @@
+@import '../../styles//media';
+
+.root {
+  padding: 16px;
+  border-bottom: 1px solid #dedfe0;
+
+  .toggler {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+
+    & button {
+      border: none;
+    }
+  }
+
+  & ul {
+    list-style: none;
+    padding: 24px 16px;
+
+    & li {
+      color: #515151;
+      font-family: 'TTSevers_Light';
+      padding: 16px 0;
+    }
+  }
+}
+
+.title {
+  font-size: 16px;
+  color: #2d2d2d;
+}

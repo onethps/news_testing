@@ -22,7 +22,7 @@ export const Card: FC<Props> = ({
   return (
     <div className={`${s.root} ${large && s.large}`}>
       <img className={`${s.image} ${large && s.imageLarge}`} src={image} alt="card_img" />
-      <span className={colorDate && colorDate}>{date}</span>
+      <span className={`${colorDate && colorDate} ${s.date}`}>{date}</span>
       <h3 className={`${large ? s.largeText : s.text} ${colorText && colorText}`}>
         {text}
       </h3>

@@ -13,6 +13,10 @@
     color: white;
     margin-top: 56px;
     padding: 0 24px;
+
+    & h1 {
+      font-family: 'TTSevers_Bold';
+    }
   }
 
   .textColor {
@@ -24,14 +28,11 @@
   }
 
   .subButton {
-    display: flex;
-    gap: 16px;
-    color: white;
-    align-items: center;
+    color: #ff7534;
+  }
 
-    & svg {
-      font-size: 32px;
-    }
+  .buttonNext {
+    color: white;
   }
 
   .content {

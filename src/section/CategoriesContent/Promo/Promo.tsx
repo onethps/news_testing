@@ -33,26 +33,25 @@ const mockBullets = [
 export const Promo: FC<Props> = (): ReactElement => {
   return (
     <section className={s.root}>
-      <div className={s.main}>
-        <div className={s.header}>
-          <h1>Промо</h1>
-          <span>Всі матеріали</span>
+      <div className={s.header}>
+        <h1>Промо</h1>
+        <span>Всі матеріали</span>
+      </div>
+      <div className={s.card}>
+        <img alt="card_img" src={mockCard.image} className={s.image} />
+        <div className={s.cardContent}>
+          <span className={s.date}>{mockCard.date}</span>
+          <h1 className={s.text}>{mockCard.text}</h1>
         </div>
-        <div className={s.card}>
-          <img alt="card_img" src={mockCard.image} />
-          <div className={s.cardContent}>
-            <span className={s.date}>{mockCard.date}</span>
-            <h1 className={s.text}>{mockCard.text}</h1>
+      </div>
+
+      <div className={s.bullets}>
+        {mockBullets.map(el => (
+          <div key={el.id} className={s.bullet}>
+            <span className={s.date}>{el.date}</span>
+            <p className={s.bulletText}>{el.text}</p>
           </div>
-        </div>
-        <div className={s.bullets}>
-          {mockBullets.map(el => (
-            <div key={el.id} className={s.bullet}>
-              <span className={s.date}>{el.date}</span>
-              <p className={s.bulletText}>{el.text}</p>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </section>
   );

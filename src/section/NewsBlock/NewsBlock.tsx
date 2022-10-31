@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 
+import { Button } from '../../components/Button/Button';
 import { Card } from '../../components/Card/Card';
 import { mockCards } from '../../components/Card/mockCards';
 import { Container } from '../../components/Container/Container';
@@ -23,6 +24,7 @@ export const NewsBlock = (): ReactElement => {
             {mockCards.map(({ id, image, date, text }) => (
               <Card key={id} image={image} date={date} text={text} />
             ))}
+            <Button customStyle="primary">Завантажити ще</Button>
           </div>
 
           <div className={s.bottomBlock}>
@@ -30,9 +32,16 @@ export const NewsBlock = (): ReactElement => {
               <h1 className={s.categoryTitle}>Регіони</h1>
               <span className={s.categorySubTitle}>Всі новини регіону</span>
             </div>
-            <div className={s.columns}>
-              {mockRegions.map(el => (
-                <RegionCard key={el.id} region={el.region} news={el.news} />
+            <div>
+              <ul className={s.categoryList}>
+                <li>Київ</li>
+                <li>Харків</li>
+                <li>Одеса</li>
+              </ul>
+            </div>
+            <div className={s.bottomColumns}>
+              {mockRegions.map(({ id, region, news }) => (
+                <RegionCard key={id} region={region} news={news} />
               ))}
             </div>
           </div>

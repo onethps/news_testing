@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   background-color: white;
+
   @include media(small-tablet) {
     padding: 24px 0;
   }
@@ -51,7 +52,13 @@
   .mobileRightSide {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
+
+    & select {
+      border: none;
+      width: 40px;
+      height: 16px;
+    }
   }
 
   .search {
@@ -94,6 +101,7 @@
   padding: 12px 24px;
   overflow: scroll;
   @include hideScroll;
+  font-size: 14px;
 
   .list {
     list-style: none;
@@ -103,6 +111,19 @@
     & li:first-child {
       color: #ff7534;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      & img {
+        width: 15px;
+        height: 15px;
+        align-self: flex-start;
+      }
+
+      & span {
+        height: 20px;
+      }
     }
   }
 

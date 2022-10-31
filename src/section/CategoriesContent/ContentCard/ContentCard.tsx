@@ -3,8 +3,8 @@ import { FC, ReactElement } from 'react';
 import { Card } from '../../../components/Card/Card';
 import { CardType } from '../../../components/Card/mockCards';
 import { newsType } from '../../../components/FeedItem/mockAllNews';
-import { SectionNews } from '../../SectionNews/SectionNews';
 
+import { AsideBlock } from './AsideBlock/AsideBlock';
 import s from './ContentCard.module.scss';
 
 type Props = {
@@ -18,7 +18,17 @@ export const ContentCard: FC<Props> = ({ title, bigCard, cards, news }): ReactEl
   return (
     <section className={s.root}>
       <div className={s.main}>
-        <h1>{title}</h1>
+        <div className={s.header}>
+          <div className={s.title}>
+            <h1>{title}</h1>
+            <span>Всі новини розділу</span>
+          </div>
+          <ul className={s.categories}>
+            <li>Новини</li>
+            <li>Статті</li>
+          </ul>
+        </div>
+
         <div className={s.content}>
           <div className={s.mainCard}>
             <Card
@@ -34,7 +44,7 @@ export const ContentCard: FC<Props> = ({ title, bigCard, cards, news }): ReactEl
             ))}
           </div>
           <div className={s.sidebar}>
-            <SectionNews news={news} />
+            <AsideBlock news={news} />
           </div>
         </div>
       </div>

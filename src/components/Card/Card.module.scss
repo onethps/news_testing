@@ -1,11 +1,9 @@
+@import '../../styles//media';
+
 .root {
   display: flex;
   flex-direction: column;
-  width: 304px;
-
-  & span {
-    padding: 16px 0;
-  }
+  // width: 328px;
 }
 
 .large {
@@ -14,7 +12,18 @@
 
 .image {
   width: 100%;
-  height: 171px;
+  height: 184px;
+}
+
+.date {
+  font-size: 12px;
+  color: #707070;
+  padding: 18px 0;
+  font-family: 'TTSevers_Light';
+
+  @include media(mobile) {
+    font-size: inherit;
+  }
 }
 
 .imageLarge {
@@ -22,7 +31,12 @@
 }
 
 .text {
-  font-size: 14px;
+  font-size: 22px;
+  line-height: 28px;
+
+  @include media(mobile) {
+    font-size: 14px;
+  }
 }
 
 .largeText {

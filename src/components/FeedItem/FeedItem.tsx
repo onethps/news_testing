@@ -54,7 +54,7 @@ export const FeedItem: FC<Props> = ({ time, text, label, date }): ReactElement =
   return (
     <div className={s.root}>
       {label ? (
-        <div className={`${s.labelBox}`}>
+        <div className={s.labelBox}>
           <img src={label && slugs[label].label} className={`${s.label}`} alt="label" />
           <span className={`${label !== 'withPhoto' ? s.hotTitle : s.normalTitle}`}>
             {slugs[label].title}
@@ -63,8 +63,7 @@ export const FeedItem: FC<Props> = ({ time, text, label, date }): ReactElement =
       ) : null}
       {date ? <span className={s.date}>{date}</span> : null}
 
-      <p className={label === 'hotNew' ? s.hotText : ''}>
-        {' '}
+      <p className={`${label === 'hotNew' ? s.hotText : s.text} `}>
         <span className={s.time}>{time}</span>
         {text}
       </p>

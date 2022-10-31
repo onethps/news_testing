@@ -1,11 +1,13 @@
+@import '../../styles//media';
+
 .root {
-  border-bottom: 1px solid #ebebeb;
-  padding: 24px 0;
+  padding: 14px 0;
 
   .labelBox {
     display: flex;
     align-items: flex-end;
     gap: 12px;
+    margin: 10px 0;
 
     .label {
       width: 16px;
@@ -18,11 +20,18 @@
   .date {
     display: block;
     color: #ff7534;
+    padding: 20px 0;
+    font-size: 12px;
+
+    @include media(mobile) {
+      font-size: inherit;
+    }
   }
 
   .time {
     color: #707070;
-    font-size: normal;
+    font-size: 14px;
+    margin-right: 10px;
   }
 
   .normalTitle {
@@ -36,19 +45,21 @@
     color: #ff7534;
     font-size: 14px;
   }
+
   .hotText {
-    font-family: 'TTSevers_Medium';
+    font-family: 'TTSevers_Bold';
     font-weight: 600;
+    @include maxTextLines(3, 1.5);
+
+    & span {
+      font-family: 'TTSevers_Light';
+    }
   }
 
-  & p {
-    padding-top: 16px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* number of lines to show */
-    line-height: 1.2; /* fallback */
-    max-height: calc(3 * 1.2);
-    overflow: hidden;
+  .text {
+    font-family: 'TTSevers_Light';
+    // padding-top: 16px;
+    @include maxTextLines(3, 1.5);
 
     & span {
       margin-right: 10px;

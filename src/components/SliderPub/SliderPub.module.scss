@@ -18,12 +18,7 @@
   }
 
   & p {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* number of lines to show */
-    line-height: 1.2; /* fallback */
-    max-height: calc(3 * 1.2);
-    overflow: hidden;
+    @include maxTextLines(3, 1.2);
   }
 }
 

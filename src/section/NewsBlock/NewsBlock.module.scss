@@ -1,18 +1,17 @@
-@import '../../styles//media';
+@import '../../styles/media';
+@import '../../styles/vars';
 
 .root {
   display: grid;
-  margin-top: 80px;
   grid-template-columns: 1fr;
   grid-template-areas:
     'side'
     'main'
     'reg';
-
   justify-content: center;
-  padding: 0 24px;
+  background-color: $neutral20;
 
-  @include media(small-tablet) {
+  @include media(mobile) {
     margin-top: 80px;
     grid-template:
       'side main '
@@ -20,18 +19,24 @@
   }
 
   .sideBlock {
+    padding: 40px 0;
     display: grid;
     grid-area: side;
+    background-color: white;
   }
 
   .mainBlock {
     display: grid;
     grid-area: main;
     grid-template-columns: 1fr;
-    margin-bottom: 56px;
+    padding: 40px 24px;
     gap: 32px;
 
-    @include media(small-tablet) {
+    & h1 {
+      font-family: 'TTSevers_Bold';
+    }
+
+    @include media(mobile) {
       grid-template-columns: 1fr 1fr 1fr;
     }
 
@@ -44,31 +49,49 @@
 
   .bottomBlock {
     display: grid;
-    grid-template-columns: 1fr;
+    padding: 40px 24px;
     grid-area: reg;
+    grid-template-columns: 1fr;
     gap: 32px;
-    overflow: scroll;
-    @include hideScroll;
+
+    @include media(mobile) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .bottomColumns {
+      display: flex;
+      gap: 12px;
+      overflow: scroll;
+      @include hideScroll;
+    }
 
     .categoryHeader {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      grid-column-start: 1;
-      grid-column-end: 4;
 
-      @include media(small-tablet) {
+      .categoryTitle {
+      }
+
+      .categorySubTitle {
+        color: #ff7534;
+        font-size: 14px;
       }
     }
 
-    .categorySubTitle {
-      color: #ff7534;
-      size: 14px;
-    }
-
-    .columns {
+    .categoryList {
+      list-style: none;
       display: flex;
-      gap: 12px;
+      gap: 20px;
+      justify-content: left;
+      align-items: center;
+      color: #919191;
+
+      & li:first-child {
+        color: #ff7534;
+        background-color: #ffeae0;
+        padding: 2px 8px;
+      }
     }
   }
 }

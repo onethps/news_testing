@@ -1,14 +1,47 @@
 @import '../../../styles//media';
 
 .root {
-  border-radius: 12px;
-  background-color: white;
-  margin-top: 24px;
+  @include media(mobile) {
+    border-radius: 12px;
+    background-color: white;
+    margin-top: 24px;
+  }
 
   .main {
     grid-area: main;
+    padding: 56px 24px;
 
-    padding: 24px 32px;
+    .header {
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & h1 {
+          font-size: 30px;
+        }
+
+        & span {
+          color: #ff7534;
+          font-size: 14px;
+        }
+      }
+
+      .categories {
+        padding-top: 24px;
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        color: #919191;
+
+        & :first-child {
+          background: #ffeae0;
+          color: #ff7534;
+          padding: 2px 8px;
+        }
+      }
+    }
 
     .content {
       margin-top: 32px;
@@ -16,7 +49,7 @@
       grid-template-columns: 1fr;
       grid-template-areas: 'sidebar';
 
-      @include media(tablet) {
+      @include media(mobile) {
         gap: 32px;
         grid-template:
           'mainCard  sidebar'
@@ -26,7 +59,7 @@
       .mainCard {
         display: none;
 
-        @include media(tablet) {
+        @include media(mobile) {
           display: grid;
           grid-area: mainCard;
         }

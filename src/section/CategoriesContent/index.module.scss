@@ -1,0 +1,54 @@
+@import '../../styles//media';
+
+.root {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr;
+  grid-template-areas:
+    'sideBlock'
+    'contentBlock';
+
+  @include media(tablet) {
+    grid-template-areas:
+      'sideBlock contentBlock'
+      '_ contentBlock';
+  }
+
+  .side {
+    grid-area: sideBlock;
+    display: grid;
+
+    @include media(mobile) {
+      width: 304px;
+      background-color: white;
+      border-radius: 12px;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+
+      & span {
+        color: #ff7534;
+      }
+    }
+
+    .sideContent {
+      padding: 24px;
+      overflow: scroll;
+      @include hideScroll;
+    }
+  }
+
+  .content {
+    display: grid;
+    grid-area: contentBlock;
+    background-color: white;
+    @include media(mobile) {
+    }
+  }
+}
