@@ -56,6 +56,11 @@
       align-self: center;
       margin-right: 32px;
       padding: 0 24px;
+
+      @include media(mobile) {
+        padding: 0px;
+        margin-right: inherit;
+      }
     }
 
     .main {
@@ -66,8 +71,9 @@
       padding: 0 24px;
       gap: 32px;
 
-      @include media(tablet) {
+      @include media(mobile) {
         grid-template-columns: 1fr 1fr;
+        padding: 0px;
       }
     }
   }

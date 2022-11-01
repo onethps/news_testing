@@ -1,5 +1,7 @@
 import { FC, ReactElement } from 'react';
 
+import { useMedia } from 'react-use';
+
 import { Card } from '../../../components/Card/Card';
 import { CardType } from '../../../components/Card/mockCards';
 import { newsType } from '../../../components/FeedItem/mockAllNews';
@@ -15,6 +17,8 @@ type Props = {
 };
 
 export const ContentCard: FC<Props> = ({ title, bigCard, cards, news }): ReactElement => {
+  const isMobileWith = useMedia('(min-width: 376px)', false);
+
   return (
     <section className={s.root}>
       <div className={s.main}>
@@ -23,10 +27,12 @@ export const ContentCard: FC<Props> = ({ title, bigCard, cards, news }): ReactEl
             <h1>{title}</h1>
             <span>Всі новини розділу</span>
           </div>
-          <ul className={s.categories}>
-            <li>Новини</li>
-            <li>Статті</li>
-          </ul>
+          {!isMobileWith && (
+            <ul className={s.categories}>
+              <li>Новини</li>
+              <li>Статті</li>
+            </ul>
+          )}
         </div>
 
         <div className={s.content}>

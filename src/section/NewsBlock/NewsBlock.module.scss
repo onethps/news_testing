@@ -9,13 +9,13 @@
     'main'
     'reg';
   justify-content: center;
-  background-color: $neutral20;
 
   @include media(mobile) {
     margin-top: 80px;
-    grid-template:
+    grid-template-areas:
       'side main '
       'side reg ';
+    grid-template-columns: 304px;
   }
 
   .sideBlock {
@@ -23,6 +23,11 @@
     display: grid;
     grid-area: side;
     background-color: white;
+
+    @include media(mobile) {
+      border-radius: 12px;
+      padding: inherit;
+    }
   }
 
   .mainBlock {
@@ -37,14 +42,16 @@
     }
 
     @include media(mobile) {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    // .categoryTitle {
-    //   grid-column-start: 1;
-    //   grid-column-end: 4;
-    //   font-size: 32px;
-    // }
+    .categoryTitle {
+      @include media(mobile) {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        font-size: 32px;
+      }
+    }
   }
 
   .bottomBlock {
@@ -55,7 +62,7 @@
     gap: 32px;
 
     @include media(mobile) {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(1fr, 3);
     }
 
     .bottomColumns {
@@ -63,6 +70,10 @@
       gap: 12px;
       overflow: scroll;
       @include hideScroll;
+
+      @include media(mobile) {
+        overflow: inherit;
+      }
     }
 
     .categoryHeader {

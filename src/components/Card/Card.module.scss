@@ -3,42 +3,46 @@
 .root {
   display: flex;
   flex-direction: column;
-  // width: 328px;
-}
+  min-width: 304px;
+  max-width: 304px;
 
-.large {
-  width: 640px;
-}
+  .image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 
-.image {
-  width: 100%;
-  height: 184px;
-}
+  .date {
+    font-size: 12px;
+    color: #707070;
+    padding: 18px 0;
+    font-family: 'TTSevers_Light';
+  }
 
-.date {
-  font-size: 12px;
-  color: #707070;
-  padding: 18px 0;
-  font-family: 'TTSevers_Light';
+  .text {
+    font-size: 22px;
+    line-height: 28px;
 
-  @include media(mobile) {
-    font-size: inherit;
+    @include media(mobile) {
+      font-size: 16px;
+    }
+  }
+
+  .largeText {
+    font-size: 24px;
+
+    @include media(mobile) {
+      font-size: 32px;
+    }
   }
 }
 
-.imageLarge {
-  height: 360px;
-}
-
-.text {
-  font-size: 22px;
-  line-height: 28px;
+.largeCard {
+  min-width: 304px;
+  max-width: 304px;
 
   @include media(mobile) {
-    font-size: 14px;
+    max-width: 640px;
+    min-width: 640px;
   }
-}
-
-.largeText {
-  font-size: 24px;
 }

@@ -1,20 +1,48 @@
 @import '../../styles/media';
 
 .root {
-  padding: 24px;
+  margin: 0 auto;
+  .content {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr;
 
-  .companyCategories {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    list-style: none;
-    text-transform: uppercase;
-    padding: 40px 0;
+    @include media(mobile) {
+      grid-template-columns: 1fr 0.5fr 1fr;
+      padding: 24px 0;
+
+      .secondCategories {
+        display: grid;
+        grid-template-columns: repeat(4, 124px);
+        column-gap: 124px;
+      }
+    }
+
+    .thirdCategories {
+      padding: 40px 0;
+      @include media(mobile) {
+        padding: 5px;
+      }
+
+      & ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        text-transform: uppercase;
+        gap: 20px;
+        align-items: center;
+
+        @include media(mobile) {
+          align-items: flex-start;
+          gap: 40px;
+          padding: 10px 0;
+        }
+      }
+    }
   }
 
   .socials {
-    padding: 40px 0;
+    padding: 40px 24px;
     border-bottom: 1px solid black;
 
     & h3 {
@@ -27,6 +55,10 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
+
+      @include media(mobile) {
+        display: flex;
+      }
 
       & li {
         font-size: 14px;
@@ -51,6 +83,11 @@
       flex-direction: column;
       gap: 24px;
       align-items: center;
+
+      @include media(mobile) {
+        flex-direction: inherit;
+        justify-content: center;
+      }
 
       & a {
         font-family: 'TTSevers_Light';

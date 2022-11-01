@@ -1,22 +1,39 @@
-@import '../../styles//media';
+@import '../../styles/media';
+@import '../../styles/vars';
 
 .topNav {
-  padding: 24px;
-  display: flex;
-  justify-content: space-between;
+  border-bottom: 1px solid $border;
   background-color: white;
 
-  @include media(small-tablet) {
-    padding: 24px 0;
+  .lang {
+    display: flex;
+    font-size: 14px;
+    gap: 18px;
+
+    &::before {
+      content: '';
+      height: auto;
+      padding-right: 10px;
+      width: 1px;
+      border-left: 1px solid $black40;
+    }
+
+    & span {
+      &:last-child {
+        color: $gray40;
+      }
+    }
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 50px;
-    border-bottom: 1px solid #e8e8e8;
+  .topInner {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+
+    @include media(mobile) {
+      padding: inherit;
+    }
   }
 
   .leftSide {
@@ -36,7 +53,8 @@
 
   .list {
     display: none;
-    @include media(small-tablet) {
+
+    @include media(mobile) {
       list-style: none;
       display: flex;
       gap: 32px;
@@ -67,7 +85,7 @@
       align-items: center;
       padding: 10px 16px;
       gap: 14px;
-      background-color: #e8e8e8;
+      background-color: $neutral20;
       border-radius: 68px;
       max-height: 37px;
     }
@@ -80,9 +98,10 @@
       background: none;
       border: none;
       min-width: 200px;
+      outline: none;
 
       &::placeholder {
-        color: #b0b0b0;
+        color: $neutral40;
       }
     }
   }
@@ -96,17 +115,24 @@
 
 .bottomNav {
   background-color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 24px;
-  overflow: scroll;
-  @include hideScroll;
-  font-size: 14px;
+  .bottomInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: scroll;
+    @include hideScroll;
+    font-size: 14px;
+  }
 
   .list {
     list-style: none;
     display: flex;
     gap: 32px;
+    padding: 0 24px;
+
+    @include media(mobile) {
+      padding: 0;
+    }
 
     & li:first-child {
       color: #ff7534;
@@ -125,12 +151,13 @@
         height: 20px;
       }
     }
-  }
-
-  @include media(small-tablet) {
-    align-items: center;
-    padding-top: 12px;
-    padding-bottom: 16px;
+    & li {
+      cursor: pointer;
+      &:hover {
+        color: $orange;
+        transition: all 0.3s;
+      }
+    }
   }
 
   .live {
@@ -143,8 +170,8 @@
       width: 6px;
       height: 6px;
       border-radius: 100%;
-      border: 3px solid rgba(224, 70, 70, 0.9);
-      background-color: #e04646;
+      border: 5px solid rgba(224, 70, 70, 0.1);
+      background: #e04646;
     }
   }
 }

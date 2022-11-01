@@ -20,12 +20,12 @@ export const Card: FC<Props> = ({
   colorDate,
 }): ReactElement => {
   return (
-    <div className={`${s.root} ${large && s.large}`}>
-      <img className={`${s.image} ${large && s.imageLarge}`} src={image} alt="card_img" />
+    <div className={`${s.root} ${large ? s.largeCard : ''}`}>
+      <img className={`${s.image} `} src={image} alt="card_img" />
       <span className={`${colorDate && colorDate} ${s.date}`}>{date}</span>
-      <h3 className={`${large ? s.largeText : s.text} ${colorText && colorText}`}>
+      <p className={`${large ? s.largeText : s.text} ${colorText && colorText}`}>
         {text}
-      </h3>
+      </p>
     </div>
   );
 };

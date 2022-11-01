@@ -2,10 +2,17 @@
 
 .root {
   background-color: white;
-  // padding: 24px 32px;
-  // margin-top: 24px;
   border-radius: 12px;
+  max-height: 100%;
+  position: relative;
 
+  @include media(mobile) {
+    margin-bottom: 24px;
+    overflow: hidden;
+    @include hideScroll;
+    max-width: 960px;
+    padding: 24px;
+  }
   .header {
     display: flex;
     align-items: center;
@@ -39,9 +46,19 @@
     justify-content: center;
     align-items: center;
 
+    @include media(mobile) {
+      padding: 24px 0;
+    }
+
     .image {
       width: 100%;
       height: auto;
+      object-fit: cover;
+
+      @include media(mobile) {
+        max-width: 272px;
+        min-width: 272px;
+      }
     }
 
     .cardContent {
@@ -71,9 +88,6 @@
         flex-direction: column;
         justify-content: center;
 
-        .date {
-        }
-
         .text {
           font-size: 32px;
           width: 60%;
@@ -92,8 +106,12 @@
     overflow: scroll;
     @include hideScroll;
 
-    @include media(tablet) {
+    @include media(mobile) {
+      padding: 24px 0;
       max-width: inherit;
+      overflow: scroll;
+      @include hideScroll;
+      scroll-behavior: smooth;
     }
   }
   .bullet {
@@ -107,5 +125,32 @@
       margin-top: 10px;
       @include maxTextLines(2, 1.2);
     }
+  }
+
+  & button {
+    bottom: 75px;
+    right: 20px;
+    position: absolute;
+    background-color: white;
+    padding: 15px;
+    border-radius: 100%;
+    border: none;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.24);
+  }
+
+  .shadow {
+    position: absolute;
+    width: 105px;
+    height: 165px;
+    bottom: 12px;
+    right: 20px;
+
+    background: linear-gradient(
+      180deg,
+      #ffffff 34.24%,
+      rgba(217, 217, 217, 0) 105.15%,
+      rgba(255, 255, 255, 0) 105.15%
+    );
+    transform: rotate(90deg);
   }
 }

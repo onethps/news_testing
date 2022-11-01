@@ -1,5 +1,7 @@
 import { ReactElement } from 'react';
 
+import { useMedia } from 'react-use';
+
 import { Button } from '../../components/Button/Button';
 import { Card } from '../../components/Card/Card';
 import { mockCards } from '../../components/Card/mockCards';
@@ -11,8 +13,10 @@ import s from './NewsBlock.module.scss';
 import { RegionCard } from './RegionCard/RegionCard';
 
 export const NewsBlock = (): ReactElement => {
+  const isMobileWith = useMedia('(min-width: 376px)', false);
+
   return (
-    <section>
+    <main>
       <Container>
         <div className={s.root}>
           <div className={s.sideBlock}>
@@ -24,7 +28,7 @@ export const NewsBlock = (): ReactElement => {
             {mockCards.map(({ id, image, date, text }) => (
               <Card key={id} image={image} date={date} text={text} />
             ))}
-            <Button customStyle="primary">Завантажити ще</Button>
+            {!isMobileWith && <Button customStyle="primary">Завантажити ще</Button>}
           </div>
 
           <div className={s.bottomBlock}>
@@ -32,13 +36,15 @@ export const NewsBlock = (): ReactElement => {
               <h1 className={s.categoryTitle}>Регіони</h1>
               <span className={s.categorySubTitle}>Всі новини регіону</span>
             </div>
-            <div>
-              <ul className={s.categoryList}>
-                <li>Київ</li>
-                <li>Харків</li>
-                <li>Одеса</li>
-              </ul>
-            </div>
+            {!isMobileWith && (
+              <div>
+                <ul className={s.categoryList}>
+                  <li>Київ</li>
+                  <li>Харків</li>
+                  <li>Одеса</li>
+                </ul>
+              </div>
+            )}
             <div className={s.bottomColumns}>
               {mockRegions.map(({ id, region, news }) => (
                 <RegionCard key={id} region={region} news={news} />
@@ -47,6 +53,6 @@ export const NewsBlock = (): ReactElement => {
           </div>
         </div>
       </Container>
-    </section>
+    </main>
   );
 };

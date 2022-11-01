@@ -1,8 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 
-// Import Swiper React components
-import { AiOutlineLeftCircle, AiOutlineRightCircle } from 'react-icons/ai';
-
+import sliderArrow from '../../assets/sprites/sliderarrow.svg';
 import { Container } from '../../components/Container/Container';
 import { SliderPub } from '../../components/SliderPub/SliderPub';
 
@@ -40,15 +38,24 @@ export const Hero = (): ReactElement => {
       <Container>
         <div className={s.contentBox}>
           <h1>{mockHeroNews[currentSlide].text}</h1>
+
+          {/* slider buttons*/}
           <div className={s.slideSwiperButtons}>
-            <AiOutlineLeftCircle onClick={() => handlePrevSlide()} />
+            <button type="button" onClick={() => handlePrevSlide()}>
+              <img className={s.sliderArrowRight} src={sliderArrow} alt="arrowLeft" />
+            </button>
             <div className={s.buttonsCounts}>
               <span>{mockHeroNews[currentSlide].id}</span>
               <span>/</span>
               <span>{mockHeroNews.length}</span>
             </div>
-            <AiOutlineRightCircle onClick={() => handleNextSlide()} />
+            <button type="button" onClick={() => handleNextSlide()}>
+              <img src={sliderArrow} alt="arrowRight" />
+            </button>
           </div>
+          {/* slider buttons*/}
+
+          {/* tabs */}
           <div className={s.sliderPubsBox}>
             {mockHeroNews.map((el, index) => (
               <SliderPub
@@ -59,6 +66,8 @@ export const Hero = (): ReactElement => {
               />
             ))}
           </div>
+
+          {/* tabs */}
         </div>
       </Container>
     </section>

@@ -1,8 +1,14 @@
+@import '../../../../styles//media';
+
 .root {
   background-color: white;
   max-width: 304px;
   // padding: 16px;
   border-radius: 20px;
+
+  @include media(mobile) {
+    max-width: 240px;
+  }
 
   & h2 {
     font-family: 'TTSevers_Normal';

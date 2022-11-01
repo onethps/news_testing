@@ -1,8 +1,8 @@
 @import '../../styles//media';
+@import '../../styles//vars';
 
 .root {
   padding: 16px;
-  border-bottom: 1px solid #dedfe0;
 
   .toggler {
     display: flex;
@@ -19,12 +19,24 @@
     list-style: none;
     padding: 24px 16px;
 
+    @include media(mobile) {
+      padding: 8px 0;
+    }
+
     & li {
       color: #515151;
       font-family: 'TTSevers_Light';
       padding: 16px 0;
+
+      @include media(mobile) {
+        padding: 8px 0;
+      }
     }
   }
+}
+
+.border {
+  border-bottom: 1px solid $border;
 }
 
 .title {

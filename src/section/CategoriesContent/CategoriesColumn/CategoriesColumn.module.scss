@@ -4,16 +4,21 @@
   display: flex;
   gap: 24px;
   width: 100%;
+
+  @include media(mobile) {
+    flex-direction: column;
+  }
 }
 
 .card {
   padding: 24px 0;
   min-width: 304px;
+  max-width: 304px;
   background-color: white;
   padding: 16px;
   border-radius: 8px;
 
-  @include media(tablet) {
+  @include media(mobile) {
     border-bottom: 1px solid #ebebeb;
   }
 
@@ -25,6 +30,11 @@
     & img {
       width: 64px;
       height: 84px;
+
+      @include media(mobile) {
+        width: 64px;
+        height: 76px;
+      }
     }
 
     .author {
@@ -45,6 +55,16 @@
     color: #707070;
     font-size: 12px;
     text-transform: uppercase;
+  }
+
+  @include media(mobile) {
+    & p {
+      font-size: inherit;
+    }
+
+    & span {
+      font-size: 12px;
+    }
   }
 
   &:last-child {

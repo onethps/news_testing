@@ -1,7 +1,8 @@
 @import '../../styles//media';
+@import '../../styles//vars';
 
 .root {
-  background: #121b30;
+  background: $primary-blue20;
   padding: 9.5px;
   font-size: 12px;
   @include media(small-tablet) {
@@ -33,7 +34,7 @@
     padding: 0 3px;
 
     &:last-child {
-      color: #ff7534;
+      color: $orange;
     }
   }
 }

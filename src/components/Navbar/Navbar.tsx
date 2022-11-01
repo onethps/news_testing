@@ -18,81 +18,88 @@ export const Navbar = (): ReactElement => {
   const isMobileWith = useMedia('(min-width: 376px)', false);
 
   return (
-    <Container>
+    <>
       {/* top navbar */}
       {/* leftmenu */}
-      <div className={s.topNav}>
-        <div className={s.leftSide}>
-          <button type="button" className={s.menuButton}>
-            <img alt="menu_icon" src={MenuIcon} />
-            <span>Меню</span>
-          </button>
-          <ul className={s.list}>
-            <li>Київ</li>
-            <li>Одесса</li>
-            <li>Харків</li>
-          </ul>
-        </div>
+      <nav className={s.topNav}>
+        <Container>
+          <div className={s.topInner}>
+            <div className={s.leftSide}>
+              <button type="button" className={s.menuButton}>
+                <img alt="menu_icon" src={MenuIcon} />
+                <span>Меню</span>
+              </button>
+              <ul className={s.list}>
+                <li>Київ</li>
+                <li>Одесса</li>
+                <li>Харків</li>
+              </ul>
+            </div>
 
-        {/* rightmenu */}
-        <div className={s.rightSide}>
-          <div className={s.rightMobile}>
-            {isMobileWith ? (
-              <div className={s.search}>
-                <img alt="a" src={searchIcon} />
-                <input placeholder="пошук новин" />
+            {/* rightmenu */}
+            <div className={s.rightSide}>
+              <div className={s.rightMobile}>
+                {isMobileWith ? (
+                  <div className={s.search}>
+                    <img alt="a" src={searchIcon} />
+                    <input placeholder="пошук новин" />
+                  </div>
+                ) : (
+                  <div className={s.mobileRightSide}>
+                    <img alt="a" src={searchMobileIcon} />
+                    <select>
+                      <option>UA</option>
+                      <option>RU</option>
+                    </select>
+                  </div>
+                )}
               </div>
-            ) : (
-              <div className={s.mobileRightSide}>
-                <img alt="a" src={searchMobileIcon} />
-                <select>
-                  <option>UA</option>
-                  <option>RU</option>
-                </select>
-              </div>
-            )}
+
+              <ul className={s.list}>
+                <li>
+                  <img alt="tg" src={tgIcon} />
+                </li>
+                <li>
+                  <img alt="fb" src={fbIcon} />
+                </li>
+                <li>
+                  <img alt="inst" src={instIcon} />
+                </li>
+                <li>
+                  <img alt="yt" src={ytIcon} />
+                </li>
+              </ul>
+
+              {isMobileWith && (
+                <div className={s.lang}>
+                  <span>RU</span>
+                  <span>UA</span>
+                </div>
+              )}
+            </div>
           </div>
+        </Container>
+      </nav>
 
-          <ul className={s.list}>
-            <li>
-              <img alt="tg" src={tgIcon} />
-            </li>
-            <li>
-              <img alt="fb" src={fbIcon} />
-            </li>
-            <li>
-              <img alt="inst" src={instIcon} />
-            </li>
-            <li>
-              <img alt="yt" src={ytIcon} />
-            </li>
-          </ul>
-
-          {/* <div className={s.lang}>
-            <span>RU</span>
-            <span className={s.border} />
-            <span>UA</span>
-          </div> */}
-        </div>
-      </div>
-
-      <div className={s.bottomNav}>
-        <ul className={s.list}>
-          <li>
-            <img src={fireIcon} alt="fire_icon" />
-            <span>ВІЙНА</span>
-          </li>
-          <li>НОВИНИ</li>
-          <li>ПОЛІТИКА</li>
-          <li>ЕКОНОМІКА</li>
-          <li>СУСПІЛЬСТВО</li>
-          <li>ПОГЛЯДИ</li>
-          <li>СВІТ</li>
-        </ul>
-        <div>
-          <span className={s.live}>Live</span>
-        </div>
-      </div>
-    </Container>
+      <nav className={s.bottomNav}>
+        <Container>
+          <div className={s.bottomInner}>
+            <ul className={s.list}>
+              <li>
+                <img src={fireIcon} alt="fire_icon" />
+                <span>ВІЙНА</span>
+              </li>
+              <li>НОВИНИ</li>
+              <li>ПОЛІТИКА</li>
+              <li>ЕКОНОМІКА</li>
+              <li>СУСПІЛЬСТВО</li>
+              <li>ПОГЛЯДИ</li>
+              <li>СВІТ</li>
+            </ul>
+            {isMobileWith && <span className={s.live}>Live</span>}
+          </div>
+        </Container>
+      </nav>
+    </>
   );
 };

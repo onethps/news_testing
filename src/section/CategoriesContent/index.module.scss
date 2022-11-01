@@ -1,54 +1,93 @@
 @import '../../styles//media';
+@import '../../styles//vars';
 
 .root {
-  margin-top: 32px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.4fr;
-  grid-template-areas:
-    'sideBlock'
-    'contentBlock';
-
-  @include media(tablet) {
-    grid-template-areas:
-      'sideBlock contentBlock'
-      '_ contentBlock';
-  }
-
-  .side {
-    grid-area: sideBlock;
+  .contentBox {
+    margin-top: 32px;
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'sideBlock'
+      'contentBlock';
 
     @include media(mobile) {
-      width: 304px;
-      background-color: white;
-      border-radius: 12px;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        'sideBlock contentBlock'
+        '_ contentBlock';
+      gap: 32px;
     }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 24px;
+    .side {
+      grid-area: sideBlock;
+      display: grid;
 
-      & span {
-        color: #ff7534;
+      @include media(mobile) {
+        min-width: 304px;
+        background-color: white;
+        border-radius: 12px;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content;
+        font-size: inherit;
+
+        & button {
+          margin: 72px 16px 16px;
+          padding: 9px 0;
+          border: 1px solid $primary-blue40;
+          background: none;
+          border-radius: 4px;
+        }
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 24px;
+
+        & h3 {
+          font-size: 32px;
+        }
+
+        & span {
+          color: $orange;
+        }
+
+        @include media(mobile) {
+          padding: 14px;
+
+          & h3 {
+            font-size: 22px;
+          }
+
+          & span {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .sideContent {
+        padding: 24px;
+        overflow: scroll;
+        @include hideScroll;
+
+        @include media(mobile) {
+          overflow: inherit;
+          padding: inherit;
+        }
       }
     }
 
-    .sideContent {
-      padding: 24px;
-      overflow: scroll;
-      @include hideScroll;
-    }
-  }
+    .content {
+      display: grid;
+      grid-area: contentBlock;
+      background-color: white;
+      border-radius: 12px;
 
-  .content {
-    display: grid;
-    grid-area: contentBlock;
-    background-color: white;
-    @include media(mobile) {
+      @include media(mobile) {
+        background-color: inherit;
+        border-radius: inherit;
+      }
     }
   }
 }

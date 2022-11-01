@@ -1,8 +1,9 @@
-import { FC, ReactElement } from 'react';
+import { ReactElement, useRef } from 'react';
 
 import s from './Promo.module.scss';
 
-type Props = {};
+import rightArrow from '../../../assets/sprites/rightarrowfill.svg';
+import { useMedia } from 'react-use';
 
 const mockCard = {
   id: 1,
@@ -28,9 +29,29 @@ const mockBullets = [
     date: '05 серпня 11:00',
     text: 'Замовте нові флагмани Samsung Galaxy Fold4|Flip4 і отримуйте подарунки',
   },
+  {
+    id: 3,
+    date: '05 серпня 11:00',
+    text: 'Замовте нові флагмани Samsung Galaxy Fold4|Flip4 і отримуйте подарунки',
+  },
+  {
+    id: 3,
+    date: '05 серпня 11:00',
+    text: 'Замовте нові флагмани Samsung Galaxy Fold4|Flip4 і отримуйте подарунки',
+  },
 ];
 
-export const Promo: FC<Props> = (): ReactElement => {
+export const Promo = (): ReactElement => {
+  const isMobileWith = useMedia('(min-width: 376px)', false);
+
+  const ref = useRef<any>(null);
+
+  const scroll = (scrollOffset: any): void => {
+    ref.current.scrollLeft += scrollOffset;
+
+    console.log(ref.current.scrollLeft);
+  };
+
   return (
     <section className={s.root}>
       <div className={s.header}>
@@ -45,7 +66,7 @@ export const Promo: FC<Props> = (): ReactElement => {
         </div>
       </div>
 
-      <div className={s.bullets}>
+      <div className={s.bullets} ref={ref}>
         {mockBullets.map(el => (
           <div key={el.id} className={s.bullet}>
             <span className={s.date}>{el.date}</span>
@@ -53,6 +74,14 @@ export const Promo: FC<Props> = (): ReactElement => {
           </div>
         ))}
       </div>
+      {isMobileWith && (
+        <>
+          <div className={s.shadow} />
+          <button onClick={() => scroll(300)} type="button">
+            <img src={rightArrow} alt="arrow" />
+          </button>
+        </>
+      )}
     </section>
   );
 };

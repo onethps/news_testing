@@ -5,12 +5,20 @@
   padding: 0 24px;
   border-radius: 20px;
 
+  @include media(mobile) {
+    padding: 0 16px;
+  }
+
   .categories {
     list-style: none;
     display: flex;
     gap: 20px;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+
+    @include media(mobile) {
+      justify-content: left;
+    }
 
     & li {
       padding: 5px;
@@ -23,16 +31,13 @@
         padding: 6px 8px;
       }
     }
-
-    @include media(mobile) {
-      justify-content: center;
-    }
   }
 
   .blockTitle {
     display: flex;
     justify-content: space-between;
     margin-bottom: 32px;
+    align-items: center;
 
     & span {
       font-size: 14px;
@@ -42,9 +47,9 @@
       &::after {
         content: '';
         position: absolute;
+        top: 20px;
         left: 0;
         right: 0;
-        bottom: 4px;
         border-bottom: 1px solid black;
       }
     }
