@@ -68,11 +68,14 @@
     gap: 32px;
     z-index: 100;
 
-    @include media(tablet) {
+    @include media(mobile) {
       grid-template-areas:
         'side main'
         'side main';
     }
+
+    grid-template-columns: max-content;
+    justify-content: center;
 
     .side {
       grid-area: side;

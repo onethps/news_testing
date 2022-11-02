@@ -81,9 +81,9 @@ const socials = [
   { id: 1, title: 'Youtube', icon: youtube },
   { id: 2, title: 'Facebook', icon: fb },
   { id: 3, title: 'Telegram', icon: tg },
-  { id: 4, title: 'TikTok', icon: tiktok },
-  { id: 4, title: 'Instagram', icon: insta },
-  { id: 4, title: 'Google News', icon: news },
+  { id: 5, title: 'TikTok', icon: tiktok },
+  { id: 6, title: 'Instagram', icon: insta },
+  { id: 7, title: 'Google News', icon: news },
 ];
 
 export type FooterCategoriesType = {
