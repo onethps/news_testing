@@ -6,12 +6,24 @@ type Props = {
   text: string;
   image: string;
   isCurrentSlide: boolean;
+  index: number;
+  setCurrentSlide: (value: number) => void;
 };
 
-export const SliderPub: FC<Props> = ({ text, image, isCurrentSlide }): ReactElement => {
+export const SliderPub: FC<Props> = ({
+  text,
+  image,
+  isCurrentSlide,
+  setCurrentSlide,
+  index,
+}): ReactElement => {
   return (
-    <div className={`${s.root} ${isCurrentSlide && s.active}`}>
-      <img alt="image_a" src={image} />
+    <div
+      role="presentation"
+      onClick={() => setCurrentSlide(index)}
+      className={`${s.root} ${isCurrentSlide && s.active}`}
+    >
+      <img alt="image_slide-thumb" src={image} />
       <p>{text}</p>
     </div>
   );

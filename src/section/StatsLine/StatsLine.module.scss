@@ -1,0 +1,40 @@
+@import '../../styles//media';
+@import '../../styles//vars';
+
+.root {
+  background: $primary-blue20;
+  padding: 9.5px 24px;
+  font-size: 12px;
+  @include media(small-tablet) {
+    padding: 10px;
+  }
+}
+
+.statsName {
+  color: white;
+  display: block;
+  min-width: 100px;
+}
+
+.block {
+  display: flex;
+}
+
+.runningLine {
+  color: white;
+}
+
+.lineItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0 40px;
+
+  & span {
+    padding: 0 3px;
+
+    &:last-child {
+      color: $orange;
+    }
+  }
+}

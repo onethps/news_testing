@@ -1,0 +1,123 @@
+@import '../../styles/media';
+@import '../../styles/vars';
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'side'
+    'main'
+    'reg';
+  justify-content: center;
+
+  @include media(mobile) {
+    margin-top: 80px;
+    grid-template-areas:
+      'side main '
+      'side reg ';
+    grid-template-columns: 304px;
+    gap: 32px;
+    grid-auto-rows: 1fr;
+    grid-template-rows: min-content;
+    grid-auto-rows: 1fr;
+    align-items: flex-start;
+  }
+
+  .sideBlock {
+    padding: 40px 0;
+    display: grid;
+    grid-area: side;
+    background-color: white;
+
+    @include media(mobile) {
+      border-radius: 12px;
+      padding: inherit;
+      padding: 16px 0;
+    }
+  }
+
+  .mainBlock {
+    display: grid;
+    grid-area: main;
+    padding: 40px 24px;
+    gap: 32px;
+    justify-content: center;
+
+    @include media(mobile) {
+      padding: 0;
+    }
+
+    & h1 {
+      font-family: 'TTSevers_Bold';
+    }
+
+    @include media(mobile) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .categoryTitle {
+      @include media(mobile) {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        font-size: 32px;
+      }
+    }
+  }
+
+  .bottomBlock {
+    display: grid;
+    padding: 40px 24px;
+    grid-area: reg;
+    grid-template-columns: 1fr;
+    gap: 32px;
+
+    @include media(mobile) {
+      grid-template-columns: repeat(1fr, 3);
+      padding: 0;
+    }
+
+    .bottomColumns {
+      display: flex;
+      gap: 12px;
+      overflow: scroll;
+      @include hideScroll;
+
+      @include media(mobile) {
+        overflow: inherit;
+
+        & button {
+          margin-top: 67px;
+        }
+      }
+    }
+
+    .categoryHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .categoryTitle {
+      }
+
+      .categorySubTitle {
+        color: #ff7534;
+        font-size: 14px;
+      }
+    }
+
+    .categoryList {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      justify-content: left;
+      align-items: center;
+      color: #919191;
+
+      & li:first-child {
+        color: #ff7534;
+        background-color: #ffeae0;
+        padding: 2px 8px;
+      }
+    }
+  }
+}

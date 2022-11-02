@@ -39,7 +39,7 @@ export const Hero = (): ReactElement => {
         <div className={s.contentBox}>
           <h1>{mockHeroNews[currentSlide].text}</h1>
 
-          {/* slider buttons*/}
+          {/* slider buttons */}
           <div className={s.slideSwiperButtons}>
             <button type="button" onClick={() => handlePrevSlide()}>
               <img className={s.sliderArrowRight} src={sliderArrow} alt="arrowLeft" />
@@ -53,12 +53,14 @@ export const Hero = (): ReactElement => {
               <img src={sliderArrow} alt="arrowRight" />
             </button>
           </div>
-          {/* slider buttons*/}
+          {/* slider buttons */}
 
           {/* tabs */}
           <div className={s.sliderPubsBox}>
             {mockHeroNews.map((el, index) => (
               <SliderPub
+                index={index}
+                setCurrentSlide={setCurrentSlide}
                 isCurrentSlide={currentSlide === index}
                 key={el.id}
                 text={el.text}
